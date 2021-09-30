@@ -24,7 +24,7 @@
             "asi": {
               "registration": {
                 "clientIdSettingName": "AADClientId",
-                "clientCredential": {
+                "clientCredential": { 
                   "clientSecretSettingName": "AADSecret"
                 },
                 "openIdConnectConfiguration": {

@@ -13,13 +13,31 @@
            },
      "auth": {
        "identityProviders": {
-         "azureActiveDirectory": {
-           "registration": {
-             "openIdIssuer": "https://login.microsoftonline.com/5b5d0579-5e6c-4fcc-a5bc-64e9bfedd4c6",
-             "clientIdSettingName": "AADClientID",
-             "clientSecretSettingName": "AADSecret"
-           },"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-                 }
+        //  "azureActiveDirectory": {
+        //    "registration": {
+        //      "openIdIssuer": "https://login.microsoftonline.com/5b5d0579-5e6c-4fcc-a5bc-64e9bfedd4c6",
+        //      "clientIdSettingName": "AADClientID",
+        //      "clientSecretSettingName": "AADSecret"
+        //    },"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+        //   },
+          "customOpenIdConnectProviders": {
+            "asi": {
+              "registration": {
+                "clientIdSettingName": "AADClientId",
+                "clientCredential": {
+                  "clientSecretSettingName": "AADSecret"
+                },
+                "openIdConnectConfiguration": {
+                  "wellKnownOpenIdConfiguration": "https://asi-oidc.azurewebsites.net/.well-known/openid-configuration"
+                }
+              },
+              "login": {
+                "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                "scopes": [],
+                "loginParameterNames": []
+              }
+            }
+          }
        }
      }
    }
